@@ -3,6 +3,8 @@ let moveAllBalls = () => {
   allBalls.forEach((ball) => {
     // This line will be run once on every single ball that is in `allBalls`.
     // Call the `move` method on the ball. In this context the ball is `ball`.
+
+
   });
 }
 
@@ -10,7 +12,7 @@ let moveAllBalls = () => {
 class Boundary {
   constructor() {
     this.width = 500;
-    this.height= 500;
+    this.height = 500;
   }
   getWrappedX(x) {
     if (x < 0) {
@@ -25,13 +27,13 @@ class Boundary {
     return y % this.height;
   }
   getWrappedPosition(pos) {
-    return {x: this.getWrappedX(pos.x), y: this.getWrappedY(pos.y)}
+    return { x: this.getWrappedX(pos.x), y: this.getWrappedY(pos.y) }
   }
 }
 
 class Helpers {
   constructor() {
-    this.CSS_COLOR_NAMES = [ "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "DarkOrange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Grey", "Green", "GreenYellow", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen","Magenta", "Maroon","MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise","MediumVioletRed", "MidnightBlue","MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab","Orange", "OrangeRed","Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru","Pink", "Plum","PowderBlue", "Purple", "RebeccaPurple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon","SandyBrown", "SeaGreen","SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow","SpringGreen", "SteelBlue","Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen",
+    this.CSS_COLOR_NAMES = ["AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "DarkOrange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Grey", "Green", "GreenYellow", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey", "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "RebeccaPurple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen",
     ];
   }
   getNewBoundary = () => {
@@ -43,7 +45,7 @@ class Helpers {
     return Math.floor(Math.random() * (max - min) + min);
   }
   getRandomColor = () => {
-    return this.CSS_COLOR_NAMES[this.getRandomNumber(0,148)];
+    return this.CSS_COLOR_NAMES[this.getRandomNumber(0, 148)];
   }
 }
 let helpers = new Helpers();
@@ -57,6 +59,20 @@ class Ball {
     //   3. Instead of bringing in the `domElement` properties,  just put
     //       this line once:
     //       ballObject.domElement =  document.querySelector(".ball");
+    // Add defaults to the ballObject
+    this.radius = 20;
+    this.position = ({ x: 250, y: 250 });
+    this.color = "blue";
+    this.velocity = ({ x: 10, y: 0 });
+    this.domElement = document.querySelector(".ball");
+    // Add the following starting styles to the domElement:
+    this.domElement.style.width = this.radius + "px";
+    this.domElement.style.height = this.radius + "px";
+    this.domElement.style.backgroundColor = this.color;
+    this.domElement.style.top = this.position.y + "px";
+    this.domElement.style.left = this.position.x + "px";
+    // use setInterval to run the move function every 500ms
+    // and then delete the "Move" button.
 
   }
 
@@ -96,7 +112,10 @@ class Ball {
 
 let makeBall = () => {
   // make a new instance of the Ball class, and add it to the `allBalls` array.
+
+  allBalls.push(new Ball())
 }
 
 // This is time:
 //setInterval(moveAllBalls, 100);
+
